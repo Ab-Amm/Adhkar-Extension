@@ -1,5 +1,4 @@
 const start = () => {
-
   let frequency = 10;
 
   function createAlarm() {
@@ -12,7 +11,7 @@ const start = () => {
   }
 
   chrome.storage.sync.get("frequency", (data) => {
-    console.log("storage get frequency "+ data.frequency);
+    console.log("storage get frequency " + data.frequency);
     frequency = data.frequency / 60 || 10;
     createAlarm();
   });
@@ -21,7 +20,7 @@ const start = () => {
     // Check if the message is intended to update the value
     if (message.type === "update") {
       frequency = message.value / 60 || 10;
-      console.log("message value "+message.value);
+      console.log("message value " + message.value);
       console.log("updated frequency " + frequency);
       createAlarm();
     }
@@ -55,7 +54,6 @@ const start = () => {
       console.log("alarm trigger 2/2 " + frequency);
     }
   });
-
 };
 
 const stop = () => {
@@ -66,15 +64,14 @@ const stop = () => {
       console.error("Failed to clear alarms.");
     }
   });
-}
+};
 
-
-chrome.storage.sync.get("status", function(data) {
+chrome.storage.sync.get("status", function (data) {
   const status = data.status || "enabled";
   console.log(status);
   if (status === "enabled") {
     start();
-  } else if (status === "disabled") { 
+  } else if (status === "disabled") {
     stop();
   } else {
     console.error("Error fetching status data");
@@ -85,7 +82,7 @@ chrome.runtime.onMessage.addListener((message, sender) => {
   if (message.type === "popup") {
     if (message.value === "enabled") {
       start();
-    } else if (message.value === "disabled") { 
+    } else if (message.value === "disabled") {
       stop();
     } else {
       console.error("Error fetching status data");
@@ -93,20 +90,16 @@ chrome.runtime.onMessage.addListener((message, sender) => {
   }
 });
 
-
 // Execute code when the extension is installed or uninstalled
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === "install") {
-    
     chrome.storage.sync.set({ darkMode: "false" });
     chrome.storage.sync.set({ frequency: "600" });
-    chrome.storage.sync.set({ status: "enabled" })
-  }
-    else if (details.reason === "uninstall") {
-      chrome.storage.sync.clear(() => {
-        console.log("Values cleared from Chrome storage sync.");
-      });
-      stop();
+    chrome.storage.sync.set({ status: "enabled" });
+  } else if (details.reason === "uninstall") {
+    chrome.storage.sync.clear(() => {
+      console.log("Values cleared from Chrome storage sync.");
+    });
+    stop();
   }
 });
-

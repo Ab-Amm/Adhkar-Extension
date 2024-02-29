@@ -151,6 +151,3 @@ chrome.runtime.onMessage.addListener((message) => {
     display();
   }
 });
-
-
-

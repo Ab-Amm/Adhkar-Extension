@@ -162,22 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  //saving the frequency
-  document.getElementById("save").addEventListener("click", () => {
-    options.forEach((option) => {
-      if (
-        option.classList.contains("active") ||
-        option.classList.contains("activeDark")
-      ) {
-        chrome.runtime.sendMessage({ type: "update", value: option.value });
-        chrome.storage.sync.set({ frequency: option.value }, (data) => {
-          console.log("frequency set " + data.frequency);
-          displayMessage("Save Successful!");
-        });
-      }
-    });
-  });
-
   const displayMessage = (message) => {
     let Message = document.createElement("div");
     Message.textContent = message;
@@ -191,15 +175,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1100);
   };
 
-  chrome.storage.sync.get("status", function(data) {
+
+  //saving the frequency
+  document.getElementById("save").addEventListener("click", () => {
+    options.forEach((option) => {
+      if (
+        option.classList.contains("active") ||
+        option.classList.contains("activeDark")
+      ) {
+        chrome.runtime.sendMessage({ type: "update", value: option.value });
+        chrome.storage.sync.set({ frequency: option.value }, () => {
+          console.log("frequency set " + option.value);
+          displayMessage("Save Successful!");
+        });
+      }
+    });
+  });
+
+  chrome.storage.sync.get("status", function (data) {
     const status = data.status || "enabled";
-    console.log("status fetched " +status);
+    console.log("status fetched " + status);
     if (status === "enabled") {
       startStop.classList.remove("start");
-      startStop.innerText = "Disable"; 
-    } else if (status === "disabled") { 
+      startStop.innerText = "Disable";
+    } else if (status === "disabled") {
       startStop.classList.add("start");
-      startStop.innerText = "Enable"; 
+      startStop.innerText = "Enable";
     } else {
       console.error("Error fetching status data");
     }
