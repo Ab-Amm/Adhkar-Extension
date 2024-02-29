@@ -138,7 +138,7 @@ function display() {
   div.style.transform = "translateX(0)";
   setTimeout(() => {
     div.style.transform = "translateX(110%)";
-    console.log("none");
+    console.log("currently displaying");
   }, 6000);
 }
 

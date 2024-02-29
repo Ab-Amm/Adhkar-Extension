@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //retrieving the frequency stored for it's correct display
   chrome.storage.sync.get("frequency", (data) => {
-    const frequency = data.frequency || 600; // default is 10 minutes
+    const frequency = data.frequency || 10; // default is 10 minutes
     console.log("frequency retrieved " + frequency);
     options.forEach((op) => {
       op.classList.remove("activeDark", "active");
