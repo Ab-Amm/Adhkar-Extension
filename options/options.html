@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="options.css" />
+    <title>Islamic Adhkar Reminder Options</title>
+  </head>
+  <body class="options_container">
+    <h1>Settings</h1>
+
+    <div class="container">
+      <div class="title">
+        <div class="line"></div>
+        <div class="text"><p class="frequency">Reminder</p></div>
+        <div class="line"></div>
+      </div>
+      <div class="dropdown">
+        <div class="select">
+          <span class="selected">10 minutes</span>
+          <div class="caret"></div>
+        </div>
+        <ul class="menu">
+          <li class="active li" value="600">10 minutes</li>
+          <li class="li" value="1800">30 minutes</li>
+          <li class="li" value="3600">1 hour</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="title">
+        <div class="line"></div>
+        <div class="text"><p class="theme">Theme</p></div>
+        <div class="line"></div>
+      </div>
+
+      <div class="toggle-container">
+        <input type="checkbox" id="check" />
+        <label for="check" class="toggle"></label>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="title">
+        <div class="line"></div>
+        <div class="text"><p>Popup</p></div>
+        <div class="line"></div>
+      </div>
+
+      <div>
+        <button class="startStop">Disable</button>
+      </div>
+    </div>
+
+
+    <div class="button-container">
+      <button id="save">Save</button>
+      <a href="../popup/popup.html">
+        <button id="back">Back</button>
+      </a>
+    </div>
+
+    <img src="../images/square.png" alt="" id="alif" />
+    <img src="../images/corner.png" alt="" id="top-right" />
+    <img src="../images/corner.png" alt="" id="top-left" />
+    <img src="../images/corner.png" alt="" id="bottom-right" />
+    <img src="../images/corner.png" alt="" id="bottom-left" />
+    <img src="../images/edge.png" alt="" id="left" />
+    <img src="../images/edge.png" alt="" id="right" />
+
+    <script src="options.js"></script>
+  </body>
+</html>

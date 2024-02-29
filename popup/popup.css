@@ -1,0 +1,163 @@
+@font-face {
+  font-family: Arabic;
+  src: url("../fonts/Kufam/Kufam-VariableFont_wght.ttf") format("truetype");
+}
+
+:root {
+  --text_color: rgb(87, 72, 25);
+  --text_color_dark: rgb(216, 204, 183);
+}
+
+#extension-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  transition: all ease-in 0.5s;
+}
+
+.popup_container {
+  background-color: rgb(255, 246, 231);
+  padding: 0;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  min-height: 130px;
+  min-width: 260px;
+  position: relative;
+  border: 2px solid rgb(171, 150, 83);
+  z-index: -10;
+}
+
+.bodyDark {
+  border: 2px solid rgb(64, 52, 11);
+  background-color: #171004;
+  color: var(--text_color_dark);
+}
+
+.text {
+  max-width: 200px;
+  font-family: "Arabic";
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.9;
+  text-align: center;
+  color: rgb(87, 72, 25);
+  position: absolute;
+  z-index: -1;
+}
+
+#hide {
+  position: absolute;
+  display: none;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  font-size: small;
+  color: var(--text_color);
+  padding: 1px 10px;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+#hide:hover {
+  opacity: 1;
+}
+
+.hideDark{
+  color: var(--text_color_dark);
+}
+.hideDark:hover{
+  opacity: 1;
+}
+
+#settings {
+  width: auto;
+  height: 1.5rem;
+  position: fixed;
+  left: 50%;
+  bottom: -2rem;
+  transform: translateX(-50%);
+  opacity: 0.5;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.2s;
+}
+#settings:hover {
+  transform: translateX(-50%) rotate(45deg);
+  opacity: 1;
+}
+
+#alif {
+  position: absolute;
+  height: 82px;
+  width: 82px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -100;
+  opacity: 0.08;
+  z-index: -2;
+}
+
+#top-left {
+  position: absolute;
+  width: auto;
+  height: 1.5rem;
+  top: 3%;
+  left: 3%;
+  transform: rotate(-90deg);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+#top-right {
+  position: absolute;
+  width: auto;
+  height: 1.5rem;
+  top: 3%;
+  right: 3%;
+  opacity: 0.15;
+  z-index: -1;
+}
+#bottom-left {
+  position: absolute;
+  width: auto;
+  height: 1.5rem;
+  bottom: 3%;
+  left: 3%;
+  transform: rotate(180deg);
+  opacity: 0.15;
+  z-index: -1;
+}
+#bottom-right {
+  position: absolute;
+  width: auto;
+  height: 1.5rem;
+  bottom: 3%;
+  right: 3%;
+  transform: rotate(90deg);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+#left {
+  position: absolute;
+  left: 5%;
+  width: 1.5px;
+  height: auto;
+  opacity: 0.1;
+  z-index: -1;
+}
+#right {
+  position: absolute;
+  right: 5%;
+  width: 1.5px;
+  height: auto;
+  opacity: 0.1;
+  z-index: -1;
+}

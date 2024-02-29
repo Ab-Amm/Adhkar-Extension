@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="bckgrd.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.4894542"
+     inkscape:cx="494.42829"
+     inkscape:cy="64.357401"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#816f4d;fill-opacity:1;stroke:#ffffff;stroke-width:0.529167;stroke-linecap:square;stroke-linejoin:bevel;stroke-opacity:0;paint-order:markers stroke fill"
+       id="rect1"
+       width="250"
+       height="120"
+       x="22.46109"
+       y="-413.17654" />
+    <path
+       d="m 246.75464,-193.21139 14.3712,7.33282 7.34788,14.40132 4.3398,-8.63276 2.4769,-4.92619 0.61065,-1.21796 -0.0728,-14.62633 -13.72792,-0.0678 -2.90017,1.45803 z m 14.71751,-6.80081 0.62488,-0.31369 12.46563,0.0619 0.008,0.005 0.19156,7.9e-4 -16.34452,6.32149 z m -3.2423,7.22743 14.18466,-5.48833 0.0134,0.003 1.31499,-0.5086 -6.04628,15.62596 -6.1567,-3.14024 z m 16.99031,-7.06431 0.0385,7.91838 -0.003,-0.003 0.0276,5.65897 -0.0243,0.0494 -6.59168,3.31424 z"
+       style="fill:#292119;stroke:#ffffff;stroke-width:1.21717;stroke-linecap:square;stroke-linejoin:bevel;stroke-opacity:0;paint-order:markers stroke fill"
+       id="path7"
+       inkscape:export-filename="bckgrd.png"
+       inkscape:export-xdpi="25.346352"
+       inkscape:export-ydpi="25.346352" />
+    <path
+       d="m 55.735493,-193.21139 -14.371201,7.33282 -7.34788,14.40132 -4.3398,-8.63276 -2.4769,-4.92619 -0.61065,-1.21796 0.0728,-14.62633 13.72792,-0.0678 2.90017,1.45803 z m -14.717511,-6.80081 -0.62488,-0.31369 -12.46563,0.0619 -0.008,0.005 -0.19156,7.9e-4 16.34452,6.32149 z m 3.2423,7.22743 -14.18466,-5.48833 -0.0134,0.003 -1.31499,-0.5086 6.04628,15.62596 6.1567,-3.14024 z m -16.99031,-7.06431 -0.0385,7.91838 0.003,-0.003 -0.0276,5.65897 0.0243,0.0494 6.59168,3.31424 z"
+       style="fill:#292119;stroke:#ffffff;stroke-width:1.21717;stroke-linecap:square;stroke-linejoin:bevel;stroke-opacity:0;paint-order:markers stroke fill"
+       id="path7-7" />
+    <path
+       d="m 55.735493,-89.373176 -14.371201,-7.33282 -7.34788,-14.401324 -4.3398,8.63276 -2.4769,4.926194 -0.61065,1.21796 0.0728,14.62633 13.72792,0.0678 2.90017,-1.45803 z m -14.717511,6.80081 -0.62488,0.31369 -12.46563,-0.0619 -0.008,-0.005 -0.19156,-7.9e-4 16.34452,-6.32149 z m 3.2423,-7.22743 -14.18466,5.48833 -0.0134,-0.003 -1.31499,0.5086 6.04628,-15.62596 6.1567,3.14024 z m -16.99031,7.06431 -0.0385,-7.91838 0.003,0.003 -0.0276,-5.65897 0.0243,-0.0494 6.59168,-3.31424 z"
+       style="fill:#292119;stroke:#ffffff;stroke-width:1.21717;stroke-linecap:square;stroke-linejoin:bevel;stroke-opacity:0;paint-order:markers stroke fill"
+       id="path7-7-4" />
+    <path
+       d="m 125.6165,119.62474 -7.33283,-14.3712 -14.40132,-7.347882 8.63276,-4.3398 4.92619,-2.4769 1.21796,-0.61065 14.62634,0.0728 0.0678,13.727922 -1.45803,2.90017 z m 6.80081,-14.71751 0.31369,-0.62488 -0.0619,-12.465632 -0.005,-0.008 -7.9e-4,-0.19156 -6.32149,16.344522 z m -7.22743,3.2423 5.48833,-14.184662 -0.003,-0.0134 0.5086,-1.31499 -15.62597,6.04628 3.14024,6.156702 z m 7.06431,-16.990312 -7.91838,-0.0385 0.003,0.003 -5.65898,-0.0276 -0.0494,0.0243 -3.31424,6.59168 z"
+       style="fill:#b29981;fill-opacity:1;stroke:#ffffff;stroke-width:1.21717;stroke-linecap:square;stroke-linejoin:bevel;stroke-opacity:0;paint-order:markers stroke fill"
+       id="path7-7-4-9"
+       inkscape:export-filename="cornerLight.png"
+       inkscape:export-xdpi="913.43768"
+       inkscape:export-ydpi="913.43768" />
+    <rect
+       style="fill:#292119;fill-opacity:1;stroke:#ffffff;stroke-width:0.891435;stroke-linecap:square;stroke-linejoin:bevel;stroke-opacity:0;paint-order:markers stroke fill"
+       id="rect7"
+       width="1.1085651"
+       height="49.108562"
+       x="268.02698"
+       y="-165.84657"
+       inkscape:export-filename="edge.png"
+       inkscape:export-xdpi="864"
+       inkscape:export-ydpi="864" />
+    <rect
+       style="fill:#b29981;fill-opacity:1;stroke:#ffffff;stroke-width:16.3288;stroke-linecap:square;stroke-linejoin:bevel;stroke-opacity:0;paint-order:markers stroke fill"
+       id="rect7-5"
+       width="17.671186"
+       height="1033.6711"
+       x="54.587486"
+       y="55.937107"
+       inkscape:export-filename="edgeLight.png"
+       inkscape:export-xdpi="25.400013"
+       inkscape:export-ydpi="25.400013" />
+  </g>
+</svg>
