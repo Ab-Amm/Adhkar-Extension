@@ -2,7 +2,6 @@ let frequency;
 chrome.storage.sync.get("frequency", (data) => {
   console.log("storage get frequency: outside " + data.frequency);
   frequency = data.frequency || 10;
-  createAlarm(frequency);
 });
 
 const sendToActiveTab = async (message) => {
