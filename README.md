@@ -14,10 +14,18 @@ The Adhkar Reminder Chrome Extension is a simple tool designed to help users sta
 
 ## Getting Started
 
-1. **Installation**: Download and install the extension from the Chrome Web Store.
 
-2. **Configuration**: Access extension settings to customize reminder frequency and other preferences.
+1. **Installation**:
+   
+   Clone the repository and place all files in a designated folder. Then, navigate to `chrome://extensions`, activate developer mode, click on "Load unpacked," and select the folder containing the extension. Once added, you can pin it to the extensions toolbar.
 
-3. **Usage**: Once installed and configured, the extension will display periodic reminders containing adhkar, helping users maintain mindfulness throughout the day.
+2. **Configuration**:
+   
+   Access the extension's settings to personalize reminder frequency and other preferences according to your liking.
 
+3. **Usage**:
+   
+   After customization, the extension will periodically display reminders containing adhkar, fostering mindfulness throughout the day.
 
+   
+(Currently pending review from the Chrome Web Store.)
