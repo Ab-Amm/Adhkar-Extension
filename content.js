@@ -50,11 +50,9 @@ const toggleDark = () => {
     topRight.src =
     bottomLeft.src =
     BottomRight.src =
-      "chrome-extension://bhjccalpmnhkhgbpclihhahofjdjidgh/images/cornerLight.png";
-  left.src = right.src =
-    "chrome-extension://bhjccalpmnhkhgbpclihhahofjdjidgh/images/edgeLight.png";
-  alif.src =
-    "chrome-extension://bhjccalpmnhkhgbpclihhahofjdjidgh/images/squareLight.png";
+      chrome.runtime.getURL("images/cornerLight.png");
+  left.src = right.src = chrome.runtime.getURL("images/edgeLight.png");
+  alif.src = chrome.runtime.getURL("images/squareLight.png");
   text.style.color = "rgb(216, 204, 183)";
 };
 
@@ -74,11 +72,9 @@ const toggleLight = () => {
     topRight.src =
     bottomLeft.src =
     BottomRight.src =
-      "chrome-extension://bhjccalpmnhkhgbpclihhahofjdjidgh/images/corner.png";
-  left.src = right.src =
-    "chrome-extension://bhjccalpmnhkhgbpclihhahofjdjidgh/images/edge.png";
-  alif.src =
-    "chrome-extension://bhjccalpmnhkhgbpclihhahofjdjidgh/images/square.png";
+      chrome.runtime.getURL("images/corner.png");
+  left.src = right.src = chrome.runtime.getURL("images/edge.png");
+  alif.src = chrome.runtime.getURL("images/square.png");
   text.style.color = "rgb(87, 72, 25)";
 };
 

@@ -1,7 +1,7 @@
 let frequency;
 chrome.storage.sync.get("frequency", (data) => {
   console.log("storage get frequency: outside " + data.frequency);
-  frequency = data.frequency || 10;
+  frequency = parseInt(data.frequency) || 10;
 });
 
 const sendToActiveTab = async (message) => {
@@ -46,7 +46,7 @@ function createAlarm(frequency) {
 chrome.runtime.onMessage.addListener((message, sender) => {
   // Check if the message is intended to update the value
   if (message.type === "update") {
-    frequency = message.value || 10;
+    frequency = parseInt(message.value) || 10;
     console.log("message value " + message.value);
     console.log("updated frequency " + frequency);
     createAlarm(frequency);
@@ -56,7 +56,7 @@ chrome.runtime.onMessage.addListener((message, sender) => {
 const start = () => {
   chrome.storage.sync.get("frequency", (data) => {
     console.log("storage get frequency; inside " + data.frequency);
-    frequency = data.frequency || 10;
+    frequency = parseInt(data.frequency) || 10;
     createAlarm(frequency);
   });
 };
