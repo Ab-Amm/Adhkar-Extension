@@ -37,7 +37,7 @@
   color: var(--text_color_dark);
 }
 
-.text {
+.adhText {
   max-width: 200px;
   font-family: "Arabic";
   font-weight: bold;

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const BottomRight = document.getElementById("bottom-right");
   const left = document.getElementById("left");
   const right = document.getElementById("right");
-  const text = document.querySelector(".text");
+  const text = document.querySelector(".adhText");
 
   //dark heme
   const toggleTheme = () => {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentIndex = result.index || 0; //giving it 0 in case of null (first time launching for example)
         const nextIndex = (currentIndex + 1) % adhkar.length;
         chrome.storage.local.set({ index: nextIndex });
-        document.querySelector(".text").textContent = adhkar[currentIndex];
+        document.querySelector(".adhText").textContent = adhkar[currentIndex];
       });
     })
     .catch((error) => {

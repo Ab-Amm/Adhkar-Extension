@@ -25,7 +25,7 @@ const fetchAdhkar = () => {
         const currentIndex = result.index || 0; //giving it 0 in case of null (first time launching for example)
         const nextIndex = (currentIndex + 1) % adhkar.length;
         chrome.storage.local.set({ index: nextIndex });
-        div.querySelector(".text").textContent = adhkar[currentIndex];
+        div.querySelector(".adhText").textContent = adhkar[currentIndex];
       });
     })
     .catch((error) => {
@@ -42,7 +42,7 @@ const toggleDark = () => {
   BottomRight = document.getElementById("bottom-right");
   left = document.getElementById("left");
   right = document.getElementById("right");
-  text = document.querySelector(".text");
+  text = document.querySelector(".adhText");
   popup_container = document.querySelector(".popup_container");
   popup_container.classList.add("bodyDark");
   hide.classList.add("hideDark");
@@ -64,7 +64,7 @@ const toggleLight = () => {
   BottomRight = document.getElementById("bottom-right");
   left = document.getElementById("left");
   right = document.getElementById("right");
-  text = document.querySelector(".text");
+  text = document.querySelector(".adhText");
   popup_container = document.querySelector(".popup_container");
   popup_container.classList.remove("bodyDark");
   hide.classList.remove("hideDark");
