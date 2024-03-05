@@ -43,13 +43,24 @@ function createAlarm(frequency) {
   });
 }
 
-chrome.runtime.onMessage.addListener((message, sender) => {
+chrome.runtime.onMessage.addListener((message) => {
   // Check if the message is intended to update the value
   if (message.type === "update") {
     frequency = parseInt(message.value) || 10;
     console.log("message value " + message.value);
     console.log("updated frequency " + frequency);
-    createAlarm(frequency);
+
+    chrome.storage.sync.get("status", function (data) {
+      const status = data.status || "enabled";
+      console.log(status);
+      if (status === "enabled") {
+        createAlarm(frequency);
+      } else if (status === "disabled") {
+        stop();
+      } else {
+        console.error("Error fetching status data");
+      }
+    });
   }
 });
 
@@ -84,7 +95,7 @@ chrome.storage.sync.get("status", function (data) {
   }
 });
 
-chrome.runtime.onMessage.addListener((message, sender) => {
+chrome.runtime.onMessage.addListener((message) => {
   if (message.type === "popup") {
     if (message.value === "enabled") {
       start();
