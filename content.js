@@ -125,6 +125,9 @@ div.addEventListener("mouseout", () => {
 hide.addEventListener("click", () => {
   // Toggle the visibility of the div
   div.style.display = "none";
+  setTimeout(() => {
+    div.style.display = "block";
+  }, 7000);
 });
 
 function display() {
