@@ -254,6 +254,46 @@ p{
     opacity: 1;
 }
 
+.unsaved{
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -22%;
+    cursor:default;
+    display: none;
+    font-weight: bolder;
+}
+.unsaved_button{
+    border-color: red;
+}
+.unsaved_message{
+    line-height: 20px;
+    background-color: red;
+    color: white;
+    width: 90px;
+    height: auto;
+    padding: 5px;
+    border: 2px solid red;
+    border-radius: 10%;
+    position: absolute;
+    top: calc(50% + 24px);
+    right: calc(-22% - 35px);
+    display: none;
+    font-size: x-small;
+    font-weight: bold;
+    z-index: 20;
+}
+.unsaved:hover + .unsaved_message {
+    display: block;
+}
+
 
 /*toggle styling*/
 input{

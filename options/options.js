@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   //dropdown menu elements
-
   const dropdown = document.querySelector(".dropdown");
   const select = dropdown.querySelector(".select");
   const caret = dropdown.querySelector(".caret");
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   //dark theme logic
-
   const check = document.getElementById("check");
 
   const enableDarkMode = () => {
@@ -140,7 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
     option.addEventListener("click", () => {
       chrome.storage.sync.get("darkMode", function (data) {
         const dark = data.darkMode;
-
+        chrome.storage.sync.get("frequency", function (freq) {
+          if (freq.frequency === option.value) {
+            document.querySelector(".unsaved").style.display = "none";
+            document.getElementById("save").classList.remove("unsaved_button");
+            return;
+          } else {
+            document.querySelector(".unsaved").style.display = "block";
+            document.getElementById("save").classList.add("unsaved_button");
+          }
+        });
         selected.innerText = option.innerText;
         if (dark === "true") {
           select.classList.remove("select-clicked-dark");
@@ -175,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1100);
   };
 
-
   //saving the frequency
   document.getElementById("save").addEventListener("click", () => {
     options.forEach((option) => {
@@ -183,10 +189,20 @@ document.addEventListener("DOMContentLoaded", () => {
         option.classList.contains("active") ||
         option.classList.contains("activeDark")
       ) {
-        chrome.runtime.sendMessage({ type: "update", value: option.value });
-        chrome.storage.sync.set({ frequency: option.value }, () => {
-          console.log("frequency set " + option.value);
-          displayMessage("Save Successful!");
+        chrome.storage.sync.get("frequency", function (freq) {
+          if (freq.frequency === option.value) {
+            return;
+          } else {
+            chrome.runtime.sendMessage({ type: "update", value: option.value });
+            chrome.storage.sync.set({ frequency: option.value }, () => {
+              console.log("frequency set " + option.value);
+              displayMessage("Save Successful!");
+              document.querySelector(".unsaved").style.display = "none";
+              document
+                .getElementById("save")
+                .classList.remove("unsaved_button");
+            });
+          }
         });
       }
     });
