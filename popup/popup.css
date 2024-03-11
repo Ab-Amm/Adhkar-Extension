@@ -107,7 +107,7 @@
 #top-left {
   position: absolute;
   width: auto;
-  height: 1.5rem;
+  height: 25px;
   top: 3%;
   left: 3%;
   transform: rotate(-90deg);
@@ -118,7 +118,7 @@
 #top-right {
   position: absolute;
   width: auto;
-  height: 1.5rem;
+  height: 25px;
   top: 3%;
   right: 3%;
   opacity: 0.15;
@@ -127,7 +127,7 @@
 #bottom-left {
   position: absolute;
   width: auto;
-  height: 1.5rem;
+  height: 25px;
   bottom: 3%;
   left: 3%;
   transform: rotate(180deg);
@@ -137,7 +137,7 @@
 #bottom-right {
   position: absolute;
   width: auto;
-  height: 1.5rem;
+  height: 25px;
   bottom: 3%;
   right: 3%;
   transform: rotate(90deg);

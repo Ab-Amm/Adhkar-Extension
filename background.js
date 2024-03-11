@@ -80,7 +80,6 @@ const stop = () => {
       console.error("Failed to clear alarms.");
     }
   });
-  clearInterval(interval);
 };
 
 chrome.storage.sync.get("status", function (data) {

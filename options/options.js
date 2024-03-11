@@ -1,58 +1,54 @@
-document.addEventListener("DOMContentLoaded", () => {
-  //dropdown menu elements
+$(document).ready(function () {
+  // Dropdown menu elements
+  const dropdown = $(".dropdown");
+  const select = dropdown.find(".select");
+  const caret = dropdown.find(".caret");
+  const menu = dropdown.find(".menu");
+  const options = dropdown.find(".li");
+  const selected = dropdown.find(".selected");
 
-  const dropdown = document.querySelector(".dropdown");
-  const select = dropdown.querySelector(".select");
-  const caret = dropdown.querySelector(".caret");
-  const menu = dropdown.querySelector(".menu");
-  const options = dropdown.querySelectorAll(".li");
-  const selected = dropdown.querySelector(".selected");
-
-  //background elements
-  const options_container = document.body;
-  const alif = document.getElementById("alif");
-  const topLeft = document.getElementById("top-left");
-  const topRight = document.getElementById("top-right");
-  const bottomLeft = document.getElementById("bottom-left");
-  const BottomRight = document.getElementById("bottom-right");
-  const left = document.getElementById("left");
-  const right = document.getElementById("right");
+  // Background elements
+  const options_container = $("body");
+  const alif = $("#alif");
+  const topLeft = $("#top-left");
+  const topRight = $("#top-right");
+  const bottomLeft = $("#bottom-left");
+  const BottomRight = $("#bottom-right");
+  const left = $("#left");
+  const right = $("#right");
 
   const elementDark = () => {
-    topLeft.src =
-      topRight.src =
-      bottomLeft.src =
-      BottomRight.src =
-        "../images/cornerLight.png";
-    left.src = right.src = "../images/edgeLight.png";
-    alif.src = "../images/squareLight.png";
+    topLeft.attr("src", "../images/cornerLight.png");
+    topRight.attr("src", "../images/cornerLight.png");
+    bottomLeft.attr("src", "../images/cornerLight.png");
+    BottomRight.attr("src", "../images/cornerLight.png");
+    left.attr("src", "../images/edgeLight.png");
+    right.attr("src", "../images/edgeLight.png");
+    alif.attr("src", "../images/squareLight.png");
   };
 
-  //dark theme logic
-
-  const check = document.getElementById("check");
+  // Dark theme logic
+  const check = $("#check");
 
   const enableDarkMode = () => {
     chrome.storage.sync.set({ darkMode: "true" });
-    check.checked = true;
+    check.prop("checked", true);
     elementDark();
   };
 
   const disableDarkMode = () => {
     chrome.storage.sync.set({ darkMode: "false" });
-    check.checked = false;
+    check.prop("checked", false);
   };
 
   const toggleTheme = () => {
-    options_container.classList.toggle("bodyDark");
-    document.getElementById("save").classList.toggle("buttonDark");
-    document.getElementById("back").classList.toggle("buttonDark");
-    document.querySelectorAll(".line").forEach((line) => {
-      line.classList.toggle("lineDark");
-    });
-    caret.classList.toggle("caretDark");
-    select.classList.toggle("selectDark");
-    menu.classList.toggle("menuDark");
+    options_container.toggleClass("bodyDark");
+    $("#save").toggleClass("buttonDark");
+    $("#back").toggleClass("buttonDark");
+    $(".line").toggleClass("lineDark");
+    caret.toggleClass("caretDark");
+    select.toggleClass("selectDark");
+    menu.toggleClass("menuDark");
   };
 
   chrome.storage.sync.get("darkMode", function (data) {
@@ -63,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  check.addEventListener("change", () => {
-    if (check.checked) {
+  check.on("change", () => {
+    if (check.prop("checked")) {
       enableDarkMode();
       toggleTheme();
     } else {
@@ -72,121 +68,123 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleTheme();
     }
   });
-
-  //retrieving the frequency stored for it's correct display
-  chrome.storage.sync.get("frequency", (data) => {
+  // Retrieving the frequency stored for its correct display
+  chrome.storage.sync.get("frequency", function (data) {
     const frequency = data.frequency || 10; // default is 10 minutes
     console.log("frequency retrieved " + frequency);
-    options.forEach((op) => {
-      op.classList.remove("activeDark", "active");
-    });
-    options.forEach((option) => {
-      if (option.value == frequency) {
+    options.removeClass("activeDark active");
+    options.each(function () {
+      const option = $(this); // Store reference to the current DOM element
+      if (option.val() == frequency) {
         console.log("frequency option found " + frequency);
         chrome.storage.sync.get("darkMode", function (data) {
           const dark = data.darkMode;
           console.log("dark value " + dark);
           if (dark === "true") {
             console.log("test 3 " + frequency);
-            option.classList.add("activeDark");
+            option.addClass("activeDark"); // Use the stored reference
           } else {
-            option.classList.add("active");
+            option.addClass("active"); // Use the stored reference
           }
         });
-        selected.innerText = option.innerText;
+        selected.text(option.text()); // Use the stored reference
       }
     });
   });
 
-  //dropdown menu logic
-  select.addEventListener("click", () => {
+  // Dropdown menu logic
+  select.on("click", function () {
     chrome.storage.sync.get("darkMode", function (data) {
       const dark = data.darkMode;
 
       if (dark === "true") {
-        select.classList.toggle("select-clicked-dark");
-        select.classList.remove("select-clicked");
+        select.toggleClass("select-clicked-dark").removeClass("select-clicked");
       } else {
-        select.classList.toggle("select-clicked");
-        select.classList.remove("select-clicked-dark");
+        select.toggleClass("select-clicked").removeClass("select-clicked-dark");
       }
-      caret.classList.toggle("caret-rotate");
-      menu.classList.toggle("menu-open");
-      options.forEach((opt) => {
+      caret.toggleClass("caret-rotate");
+      menu.toggleClass("menu-open");
+      options.each(function () {
+        const option = $(this);
         if (dark === "true") {
-          opt.classList.add("liDark");
-          opt.classList.remove("li");
+          option.addClass("liDark").removeClass("li");
+          console.log("test lidark 1");
         } else {
-          opt.classList.add("li");
-          opt.classList.remove("liDark");
+          option.addClass("li").removeClass("liDark");
+          console.log("test lidark 2");
         }
-        if (
-          opt.classList.contains("active") ||
-          opt.classList.contains("activeDark")
-        ) {
+        if (option.hasClass("active") || option.hasClass("activeDark")) {
           if (dark === "true") {
-            opt.classList.add("activeDark");
-            opt.classList.remove("active");
+            option.addClass("activeDark").removeClass("active");
           } else {
-            opt.classList.remove("activeDark");
-            opt.classList.add("active");
+            option.removeClass("activeDark").addClass("active");
           }
         }
       });
     });
   });
 
-  options.forEach((option) => {
-    option.addEventListener("click", () => {
-      chrome.storage.sync.get("darkMode", function (data) {
-        const dark = data.darkMode;
+  options.on("click", function () {
+    const clickedOption = $(this); // Store reference to the clicked DOM element
+    chrome.storage.sync.get(["darkMode", "frequency"], function (data) {
+      const dark = data.darkMode;
+      const frequency = data.frequency;
 
-        selected.innerText = option.innerText;
-        if (dark === "true") {
-          select.classList.remove("select-clicked-dark");
-        } else {
-          select.classList.remove("select-clicked");
-        }
-        caret.classList.remove("caret-rotate");
-        menu.classList.remove("menu-open");
+      if (frequency === clickedOption.val()) {
+        $(".unsaved").hide();
+        $("#save").removeClass("unsaved_button");
+      } else {
+        $(".unsaved").show();
+        $("#save").addClass("unsaved_button");
+      }
 
-        options.forEach((op) => {
-          op.classList.remove("activeDark", "active");
-        });
-        if (dark === "true") {
-          option.classList.add("activeDark");
-        } else {
-          option.classList.add("active");
-        }
-      });
+      selected.text(clickedOption.text());
+      if (dark === "true") {
+        select.removeClass("select-clicked-dark");
+      } else {
+        select.removeClass("select-clicked");
+      }
+      caret.removeClass("caret-rotate");
+      menu.removeClass("menu-open");
+
+      options.removeClass("activeDark active");
+      if (dark === "true") {
+        clickedOption.addClass("activeDark");
+      } else {
+        clickedOption.addClass("active");
+      }
     });
   });
 
   const displayMessage = (message) => {
-    let Message = document.createElement("div");
-    Message.textContent = message;
-    Message.classList.add("success-message");
-    options_container.appendChild(Message);
+    let Message = $("<div>").text(message).addClass("success-message");
+    options_container.append(Message);
     setTimeout(() => {
-      Message.classList.add("hidden");
+      Message.addClass("hidden");
       setTimeout(() => {
         Message.remove();
       }, 500);
     }, 1100);
   };
 
-
-  //saving the frequency
-  document.getElementById("save").addEventListener("click", () => {
-    options.forEach((option) => {
-      if (
-        option.classList.contains("active") ||
-        option.classList.contains("activeDark")
-      ) {
-        chrome.runtime.sendMessage({ type: "update", value: option.value });
-        chrome.storage.sync.set({ frequency: option.value }, () => {
-          console.log("frequency set " + option.value);
-          displayMessage("Save Successful!");
+  // Saving the frequency
+  $("#save").on("click", function () {
+    options.each(function () {
+      const option = $(this);
+      if (option.hasClass("active") || option.hasClass("activeDark")) {
+        chrome.storage.sync.get("frequency", function (freq) {
+          if (freq.frequency === option.val()) {
+            return;
+          } else {
+            console.log("test option.val() = "+ option.val())
+            chrome.runtime.sendMessage({ type: "update", value: option.val() });
+            chrome.storage.sync.set({ frequency: option.val() }, () => {
+              console.log("frequency set " + option.val());
+              displayMessage("Save Successful!");
+              $(".unsaved").hide();
+              $("#save").removeClass("unsaved_button");
+            });
+          }
         });
       }
     });
@@ -196,33 +194,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const status = data.status || "enabled";
     console.log("status fetched " + status);
     if (status === "enabled") {
-      startStop.classList.remove("start");
-      startStop.innerText = "Disable";
+      startStop.removeClass("start").text("Disable");
     } else if (status === "disabled") {
-      startStop.classList.add("start");
-      startStop.innerText = "Enable";
+      startStop.addClass("start").text("Enable");
     } else {
       console.error("Error fetching status data");
     }
   });
 
-  // start stop popups
-  const startStop = document.querySelector(".startStop");
-  startStop.addEventListener("click", () => {
+  // Start stop popups
+  const startStop = $(".startStop");
+  startStop.on("click", function () {
     console.log("test");
-    startStop.classList.toggle("start");
-    if (startStop.innerText === "Enable") {
+    startStop.toggleClass("start");
+    if (startStop.text() === "Enable") {
       chrome.runtime.sendMessage({ type: "popup", value: "enabled" });
       chrome.storage.sync.set({ status: "enabled" }, () => {
         console.log("status enabled ");
-        startStop.innerText = "Disable";
+        startStop.text("Disable");
         displayMessage("Popups Enabled Successfully!");
       });
-    } else if (startStop.innerText === "Disable") {
+    } else if (startStop.text() === "Disable") {
       chrome.runtime.sendMessage({ type: "popup", value: "disabled" });
       chrome.storage.sync.set({ status: "disabled" }, () => {
         console.log("status disabled ");
-        startStop.innerText = "Enable";
+        startStop.text("Enable");
         displayMessage("Popups Disabled Successfully!");
       });
     }
