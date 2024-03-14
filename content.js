@@ -127,7 +127,7 @@ hide.addEventListener("click", () => {
   div.style.display = "none";
   setTimeout(() => {
     div.style.display = "block";
-  }, 7000);
+  }, 15000);
 });
 
 function display() {
