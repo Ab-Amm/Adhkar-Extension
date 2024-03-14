@@ -138,7 +138,7 @@ function display() {
   setTimeout(() => {
     div.style.transform = "translateX(110%)";
     console.log("currently displaying");
-  }, 10000);
+  }, 8000);
 }
 
 //chrome message
