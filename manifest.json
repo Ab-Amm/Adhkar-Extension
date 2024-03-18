@@ -3,7 +3,7 @@
     "name": "Adhkar Reminder",
     "version": "1.0",
     "description": "Short timed adhkar popups with custom frequency",
-    "permissions": ["alarms", "storage", "activeTab", "tabs", "runtime"],
+    "permissions": ["alarms", "storage", "activeTab", "tabs"],
     "action": {
         "default_popup": "popup/popup.html",
         "default_icon": {
